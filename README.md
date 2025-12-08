@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kazimo - Site Web Officiel
 
-## Getting Started
+Plateforme de core banking modulaire pour la microfinance en Afrique.
 
-First, run the development server:
+## 🚀 Technologies
+
+- **Next.js 16** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **Lucide React** (Icônes)
+
+## 📦 Installation
+
+```bash
+npm install
+```
+
+## 🛠️ Développement
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 📄 Pages
 
-To learn more about Next.js, take a look at the following resources:
+- `/` - Landing page avec toutes les sections
+- `/a-propos` - À propos de Kazimo
+- `/pour-qui` - Pour qui est Kazimo
+- `/contact` - Formulaire de contact
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Design
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Design moderne inspiré d'Hercules avec :
+- Grille croisée sur le background
+- Éléments flottants animés
+- Design minimaliste et professionnel
+- Responsive (mobile, tablette, desktop)
 
-## Deploy on Vercel
+## 🚀 Déploiement sur Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Option 1 : Via l'interface Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Allez sur [vercel.com](https://vercel.com)
+2. Connectez votre compte GitHub
+3. Cliquez sur "New Project"
+4. Sélectionnez le repository `kazimo-web`
+5. Vercel détectera automatiquement Next.js
+6. Cliquez sur "Deploy"
+
+### Option 2 : Via la CLI Vercel
+
+```bash
+npm i -g vercel
+vercel
+```
+
+### Configuration Vercel
+
+Aucune configuration supplémentaire n'est nécessaire. Vercel détectera automatiquement :
+- Framework : Next.js
+- Build Command : `next build`
+- Output Directory : `.next`
+- Install Command : `npm install`
+
+## 📝 Notes
+
+- Le logo se trouve dans `/public/Kazimo.png`
+- Les composants réutilisables sont dans `/src/components`
+- Les styles globaux sont dans `/src/app/globals.css`
+
+## 🔗 Liens
+
+- Repository : [https://github.com/suzy289/kazimo-web](https://github.com/suzy289/kazimo-web)
