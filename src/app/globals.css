@@ -1,26 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #0f172a;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+}
+
+.font-heading {
+  font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Grid pattern background like Hercules */
+body {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glass {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.section {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.gradient-hero {
+  background: radial-gradient(circle at 20% 20%, rgba(31, 95, 255, 0.08), transparent 25%),
+    radial-gradient(circle at 80% 30%, rgba(77, 163, 255, 0.12), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(20, 58, 139, 0.1), transparent 35%),
+    #f8fafc;
+}
+
+.card {
+  border-radius: 1.25rem;
+  border: 1px solid rgb(226 232 240);
+  background: #ffffff;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: #eef2ff;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f5fff;
+}
+
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.85rem;
+  background: #1f5fff;
+  padding: 0.85rem 1.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 15px 40px -12px rgba(31, 95, 255, 0.6);
+  transition: all 0.2s ease;
+}
+.primary-btn:hover {
+  transform: translateY(-1px);
+  background: #143a8b;
+}
+
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.85rem;
+  border: 1.5px solid #1f5fff;
+  padding: 0.85rem 1.5rem;
+  color: #1f5fff;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.secondary-btn:hover {
+  transform: translateY(-1px);
+  background: #eef2ff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f5fff;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #143a8b;
+}
+
+/* Animation flottante pour les éléments décoratifs */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
