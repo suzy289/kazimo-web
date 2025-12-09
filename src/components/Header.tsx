@@ -33,27 +33,27 @@ export function Header() {
         scrolled ? "border-b border-slate-200/60" : ""
       }`}
     >
-      <div className="section flex h-16 items-center justify-between">
+      <div className="section flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/Kazimo.png"
             alt="Kazimo Logo"
-            width={180}
-            height={60}
-            className="h-12 w-auto sm:h-14"
+            width={380}
+            height={130}
+            className="h-28 w-auto sm:h-32"
             priority
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 lg:flex">
+        <nav className="hidden items-center gap-9 text-lg font-semibold text-slate-800 lg:flex">
           {navItems.map((item) => {
             const active = pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`transition hover:text-slate-900 ${
-                  active ? "text-slate-900" : ""
+                className={`nav-link-shape transition hover:text-[#1f5fff] ${
+                  active ? "text-[#1f5fff]" : ""
                 }`}
               >
                 {item.label}
@@ -62,30 +62,30 @@ export function Header() {
           })}
           <Link
             href="/contact"
-            className="ml-4 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-50"
+              className="ml-5 rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-base font-semibold text-slate-900 transition hover:bg-[#1f5fff] hover:text-white hover:border-[#1f5fff]"
           >
             Demander une démo
           </Link>
         </nav>
 
         <button
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 lg:hidden"
+          className="inline-flex h-12 w-12 items-center justify-center rounded-lg border border-slate-200 lg:hidden"
           onClick={() => setOpen((p) => !p)}
           aria-label="Ouvrir le menu"
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {open && (
         <div className="border-t border-slate-200 bg-white lg:hidden">
-          <div className="section flex flex-col gap-3 py-4 text-sm font-medium text-slate-600">
+          <div className="section flex flex-col gap-3 py-5 text-lg font-semibold text-slate-800">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`py-2 ${
-                  pathname === item.href ? "text-slate-900" : ""
+                className={`nav-link-shape py-2 hover:text-[#1f5fff] ${
+                  pathname === item.href ? "text-[#1f5fff]" : ""
                 }`}
               >
                 {item.label}
@@ -93,7 +93,7 @@ export function Header() {
             ))}
             <Link
               href="/contact"
-              className="mt-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-center text-slate-900"
+              className="mt-3 rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-center text-slate-900 transition hover:bg-[#1f5fff] hover:text-white hover:border-[#1f5fff]"
             >
               Demander une démo
             </Link>
