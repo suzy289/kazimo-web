@@ -403,7 +403,6 @@ export default function Home() {
             backgroundPosition: "0% 50%, center",
             backgroundRepeat: "repeat-x, no-repeat",
             animation: "bg-pan 30s linear infinite",
-            backgroundRepeat: "no-repeat",
           }}
         >
           <div className="pointer-events-none absolute inset-0">
