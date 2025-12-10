@@ -29,7 +29,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition ${
+      className={`header-light fixed top-0 left-0 right-0 z-50 overflow-hidden bg-white/80 backdrop-blur-md transition ${
         scrolled ? "border-b border-slate-200/60" : ""
       }`}
     >
