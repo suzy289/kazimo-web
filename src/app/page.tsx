@@ -203,7 +203,7 @@ function MissionInteractiveSection() {
   return (
     <section className="py-20">
       <div
-        className="relative mx-auto max-w-[1700px] overflow-hidden rounded-3xl border border-slate-200/70 bg-transparent px-6 py-12 shadow-2xl sm:px-8 lg:px-16"
+        className="section relative overflow-hidden rounded-3xl border border-slate-200/70 bg-transparent px-6 py-12 shadow-2xl sm:px-8 lg:px-12"
         style={{
           backgroundImage:
             "linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.75)), url('/futuristic-geometric-modern-blue-professional-260nw-2475853189.webp')",
@@ -403,47 +403,19 @@ export default function Home() {
         </div>
 
         {/* Contenu principal */}
-        <div className="relative z-10 w-full max-w-4xl text-center overflow-hidden rounded-3xl bg-slate-900/70 px-6 py-6 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.5)] backdrop-blur-sm sm:px-10 sm:py-10 border border-white/10">
-          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-3xl">
-            <div
-              className="hero-slide delay-1"
-              style={{ backgroundImage: "url('/forex-gold-trading-background-glowing-260nw-.jpg')" }}
-            />
-            <div
-              className="hero-slide delay-2"
-              style={{ backgroundImage: "url('/pngtree-3d-render-of-crypto-currency-and-nft-composition-image_3828737.jpg')" }}
-            />
-            <div
-              className="hero-slide delay-3"
-              style={{ backgroundImage: "url('/depositphotos_382815564-stock-photo-forex-chart.jpg')" }}
-            />
-            <div className="absolute inset-0 bg-slate-900/70" />
-          </div>
-          <div className="pointer-events-none absolute inset-x-4 bottom-4 flex flex-col items-center gap-2 sm:inset-x-6 sm:bottom-5">
-            {[
-              "Kazimo core banking : dépôts, retraits, crédits, comptabilité, reporting COBAC, 24/7 mobile-first.",
-              "Pay & Connect : Mobile Money, réseau d’agents, réconciliation temps réel, notifications live.",
-              "Sécurité & IA : AES-256, MFA, journaux d’audit, API sécurisées et assistant IA 24/7.",
-            ].map((msg, i) => (
-              <div
-                key={msg}
-                className={`hero-msg delay-${i + 1} rounded-full bg-gradient-to-r from-[#1F5FFF]/90 via-[#0b1220]/90 to-[#f59e0b]/90 px-4 py-1.5 text-xs font-semibold text-[#fcd34d] shadow-sm backdrop-blur drop-shadow`}
-              >
-                {msg}
-              </div>
-            ))}
-          </div>
+        <div className="section relative z-10 flex w-full flex-col items-center">
+          <div className="w-full max-w-4xl text-center px-6 py-6 sm:px-10 sm:py-10">
           <h1 className="mb-6 text-5xl font-bold leading-tight text-slate-900 sm:text-6xl lg:text-7xl">
             La plateforme de{" "}
             <span className="bg-gradient-to-r from-[#1F5FFF] via-[#4DA3FF] to-[#f59e0b] bg-clip-text text-transparent drop-shadow-[0_3px_12px_rgba(0,0,0,0.45)]">
               core banking modulaire
             </span>{" "}
-            <span className="text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]">pour la microfinance en Afrique</span>
+            <span className="text-slate-900 drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)]">pour la microfinance en Afrique</span>
           </h1>
-          <p className="mb-6 text-xl text-white/90 drop-shadow-[0_3px_12px_rgba(0,0,0,0.45)] sm:text-2xl">
+          <p className="mb-6 text-xl text-slate-700 sm:text-2xl">
             Kazimo est une plateforme de finance numérique modulaire conçue pour les EMF, IMF, coopératives et banques communautaires en Afrique.
           </p>
-          <div className="mb-10 grid gap-3 text-left text-sm text-white/90 sm:grid-cols-2 sm:text-base">
+          <div className="mb-10 grid gap-3 text-left text-sm text-slate-800 sm:grid-cols-2 sm:text-base">
             {[
               "Core banking complet : dépôts, retraits, crédits, comptabilité, reporting réglementaire.",
               "Application mobile clients connectée au Mobile Money et au réseau d’agents.",
@@ -451,7 +423,7 @@ export default function Home() {
               "Assistant IA disponible 24/7 pour le support client et la distribution de produits.",
             ].map((item) => (
               <div key={item} className="flex items-start gap-2">
-                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#f59e0b] drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]" />
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#f59e0b]" />
                 <span>{item}</span>
               </div>
             ))}
@@ -470,6 +442,7 @@ export default function Home() {
             >
               Parler à un expert
             </Link>
+          </div>
           </div>
         </div>
       </section>
@@ -679,7 +652,7 @@ export default function Home() {
       {/* Benefits Section - Ticker + cartes */}
       <section className="py-20">
         <div
-          className="relative mx-auto max-w-[1700px] overflow-hidden rounded-3xl border border-slate-200/70 bg-transparent px-6 py-12 shadow-2xl sm:px-8 lg:px-16"
+          className="section relative overflow-hidden rounded-3xl border border-slate-200/70 bg-transparent px-6 py-12 shadow-2xl sm:px-8 lg:px-12"
           style={{
             backgroundImage:
               "linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.78)), url('/arriere-plan-particules-technologiques-abstraites-realistes_23-2148431735.avif')",
