@@ -62,7 +62,7 @@ export function Header() {
           })}
           <Link
             href="/contact"
-              className="ml-5 rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-base font-semibold text-slate-900 transition hover:bg-[#1f5fff] hover:text-white hover:border-[#1f5fff]"
+            className="ml-5 rounded-lg border border-slate-300 px-5 py-2.5 text-base font-semibold text-slate-900 transition hover:bg-[#1f5fff] hover:text-white hover:border-[#1f5fff]"
           >
             Demander une démo
           </Link>
@@ -78,7 +78,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-slate-200 bg-white lg:hidden">
+        <div className="border-t border-slate-200 bg-black lg:hidden">
           <div className="section flex flex-col gap-3 py-5 text-lg font-semibold text-slate-800">
             {navItems.map((item) => (
               <Link
@@ -93,7 +93,7 @@ export function Header() {
             ))}
             <Link
               href="/contact"
-              className="mt-3 rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-center text-slate-900 transition hover:bg-[#1f5fff] hover:text-white hover:border-[#1f5fff]"
+              className="mt-3 rounded-lg border border-slate-300 px-5 py-2.5 text-center text-slate-900 transition hover:bg-[#1f5fff] hover:text-white hover:border-[#1f5fff]"
             >
               Demander une démo
             </Link>
