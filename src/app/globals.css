@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -9,14 +9,15 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     sans-serif;
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 18px;
+  line-height: 1.7;
 }
 
 .font-heading {
-  font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-weight: 700;
 }
 
 html {
@@ -77,16 +78,35 @@ body {
   justify-content: center;
   gap: 0.5rem;
   border-radius: 0.85rem;
-  background: #1f5fff;
+  background: #000000;
   padding: 0.85rem 1.5rem;
   color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 15px 40px -12px rgba(31, 95, 255, 0.6);
-  transition: all 0.2s ease;
+  box-shadow: 0 15px 40px -12px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
+
+.primary-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.primary-btn:hover::before {
+  left: 100%;
+}
+
 .primary-btn:hover {
   transform: translateY(-1px);
-  background: #143a8b;
+  background: #1f5fff;
+  box-shadow: 0 20px 50px -12px rgba(31, 95, 255, 0.5);
 }
 
 .secondary-btn {
@@ -95,15 +115,95 @@ body {
   justify-content: center;
   gap: 0.5rem;
   border-radius: 0.85rem;
-  border: 1.5px solid #1f5fff;
+  border: 1.5px solid #000000;
+  background: #000000;
   padding: 0.85rem 1.5rem;
-  color: #1f5fff;
+  color: #ffffff;
   font-weight: 700;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
+
+.secondary-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.secondary-btn:hover::before {
+  left: 100%;
+}
+
 .secondary-btn:hover {
   transform: translateY(-1px);
-  background: #eef2ff;
+  background: #1f5fff;
+  border-color: #1f5fff;
+  box-shadow: 0 20px 50px -12px rgba(31, 95, 255, 0.5);
+}
+
+/* Style générique pour tous les boutons CTA */
+a[href="/contact"],
+a[href*="contact"],
+button[type="submit"],
+button[type="button"]:not([class*="h-2"]):not([class*="w-2"]):not([class*="rounded-full"]):not([class*="w-full rounded-xl border"]) {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Appliquer le style or aux liens de contact et boutons CTA */
+a[href="/contact"]:not([class*="text-transparent"]),
+a[href*="contact"]:not([class*="text-transparent"]),
+button[type="submit"]:not([class*="h-2"]):not([class*="w-2"]),
+button[type="button"]:not([class*="h-2"]):not([class*="w-2"]):not([class*="rounded-full"]):not([class*="w-full rounded-xl border"]) {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+a[href="/contact"]:not([class*="text-transparent"])::before,
+a[href*="contact"]:not([class*="text-transparent"])::before,
+button[type="submit"]:not([class*="h-2"]):not([class*="w-2"])::before,
+button[type="button"]:not([class*="h-2"]):not([class*="w-2"]):not([class*="rounded-full"]):not([class*="w-full rounded-xl border"])::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4), transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
+}
+
+a[href="/contact"]:not([class*="text-transparent"]):hover::before,
+a[href*="contact"]:not([class*="text-transparent"]):hover::before,
+button[type="submit"]:not([class*="h-2"]):not([class*="w-2"]):hover::before,
+button[type="button"]:not([class*="h-2"]):not([class*="w-2"]):not([class*="rounded-full"]):not([class*="w-full rounded-xl border"]):hover::before {
+  left: 100%;
+}
+
+a[href="/contact"]:not([class*="text-transparent"]):hover,
+a[href*="contact"]:not([class*="text-transparent"]):hover,
+button[type="submit"]:not([class*="h-2"]):not([class*="w-2"]):hover,
+button[type="button"]:not([class*="h-2"]):not([class*="w-2"]):not([class*="rounded-full"]):not([class*="w-full rounded-xl border"]):hover {
+  background: #1f5fff !important;
+  color: #ffffff !important;
+  border-color: #1f5fff !important;
+  box-shadow: 0 20px 50px -12px rgba(31, 95, 255, 0.5);
+}
+
+a[href="/contact"]:not([class*="text-transparent"]) > *,
+a[href*="contact"]:not([class*="text-transparent"]) > *,
+button[type="submit"]:not([class*="h-2"]):not([class*="w-2"]) > *,
+button[type="button"]:not([class*="h-2"]):not([class*="w-2"]):not([class*="rounded-full"]):not([class*="w-full rounded-xl border"]) > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* Scrollbar */
@@ -303,32 +403,51 @@ body {
 
 @keyframes header-sweep {
   0% {
-    transform: translateX(-140%) rotate(10deg);
+    transform: translateX(-60%);
   }
   100% {
-    transform: translateX(160%) rotate(10deg);
+    transform: translateX(60%);
+  }
+}
+
+@keyframes header-slide-down {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
 .header-light {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  animation: header-slide-down 1.2s ease-out;
+}
+
+.header-slide-down-animate {
+  animation: header-slide-down 1.2s ease-out forwards;
 }
 
 .header-light::before {
   content: "";
   position: absolute;
-  top: -80%;
-  left: -30%;
-  width: 50%;
-  height: 260%;
+  top: -120%;
+  left: -100%;
+  width: 200%;
+  height: 320%;
   background: radial-gradient(
     circle at 30% 50%,
-    rgba(255, 255, 255, 0.75),
-    rgba(31, 95, 255, 0.22),
+    rgba(173, 216, 255, 0.9),
+    rgba(79, 170, 255, 0.55),
     transparent 60%
   );
-  filter: blur(14px);
-  animation: header-sweep 8s linear infinite;
+  filter: blur(10px);
+  animation: header-sweep 14s linear infinite;
   pointer-events: none;
   opacity: 0.85;
   z-index: 0;
@@ -337,4 +456,267 @@ body {
 .header-light > * {
   position: relative;
   z-index: 1;
+}
+
+/* Apparition progressive depuis le bas (déclenchée au scroll via IntersectionObserver) */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: var(--reveal-delay, 0s);
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animations pour les cartes depuis gauche et droite */
+[data-scroll-animate="left"] {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.8s ease-out var(--animate-delay, 0s), transform 0.8s ease-out var(--animate-delay, 0s);
+}
+
+[data-scroll-animate="right"] {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.8s ease-out var(--animate-delay, 0s), transform 0.8s ease-out var(--animate-delay, 0s);
+}
+
+[data-scroll-animate].scroll-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animations pour les images en rotation orbitale */
+@keyframes orbit-rotate {
+  from {
+    transform: rotate(0deg) translateX(var(--orbit-radius, 200px)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(var(--orbit-radius, 200px)) rotate(-360deg);
+  }
+}
+
+@keyframes orbit-rotate-reverse {
+  from {
+    transform: rotate(360deg) translateX(var(--orbit-radius, 200px)) rotate(-360deg);
+  }
+  to {
+    transform: rotate(0deg) translateX(var(--orbit-radius, 200px)) rotate(0deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(31, 95, 255, 0.3), 0 0 40px rgba(31, 95, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(31, 95, 255, 0.5), 0 0 60px rgba(31, 95, 255, 0.3), 0 0 80px rgba(77, 163, 255, 0.2);
+  }
+}
+
+@keyframes float-rotate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+.orbit-container {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .orbit-container {
+    min-height: 600px;
+  }
+}
+
+.orbit-image {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(31, 95, 255, 0.4), 0 0 80px rgba(77, 163, 255, 0.2);
+  animation: orbit-rotate var(--orbit-duration, 20s) linear infinite, pulse-glow 3s ease-in-out infinite;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  top: 50%;
+  left: 50%;
+  margin-top: -70px;
+  margin-left: -70px;
+}
+
+@media (min-width: 768px) {
+  .orbit-image {
+    width: 160px;
+    height: 160px;
+    margin-top: -80px;
+    margin-left: -80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .orbit-image {
+    width: 180px;
+    height: 180px;
+    margin-top: -90px;
+    margin-left: -90px;
+  }
+}
+
+.orbit-image:hover {
+  transform: scale(1.2) !important;
+  z-index: 10;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(31, 95, 255, 0.6), 0 0 100px rgba(77, 163, 255, 0.4);
+  border-color: rgba(77, 163, 255, 1);
+}
+
+.orbit-image.reverse {
+  animation: orbit-rotate-reverse var(--orbit-duration, 25s) linear infinite, pulse-glow 3s ease-in-out infinite;
+}
+
+.orbit-center {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(31, 95, 255, 0.25), rgba(77, 163, 255, 0.15));
+  border: 3px solid rgba(77, 163, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  animation: float-rotate 8s ease-in-out infinite;
+  box-shadow: 0 0 60px rgba(31, 95, 255, 0.5), inset 0 0 40px rgba(77, 163, 255, 0.3), 0 0 100px rgba(77, 163, 255, 0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 1024px) {
+  .orbit-center {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.orbit-center::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 70%);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.orbit-center::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  border: 2px solid rgba(77, 163, 255, 0.2);
+  animation: float-rotate 12s linear infinite reverse;
+}
+
+/* Effets de zoom au survol pour tous les éléments interactifs */
+button:not(.no-zoom),
+a:not(.no-zoom):not([href^="#"]),
+.primary-btn:not(.no-zoom),
+.secondary-btn:not(.no-zoom),
+[role="button"]:not(.no-zoom),
+input[type="submit"]:not(.no-zoom),
+input[type="button"]:not(.no-zoom) {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+button:not(.no-zoom):hover,
+a:not(.no-zoom):not([href^="#"]):hover,
+.primary-btn:not(.no-zoom):hover,
+.secondary-btn:not(.no-zoom):hover,
+[role="button"]:not(.no-zoom):hover,
+input[type="submit"]:not(.no-zoom):hover,
+input[type="button"]:not(.no-zoom):hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+/* Effet de zoom pour les images */
+img:not(.no-zoom) {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+img:not(.no-zoom):hover {
+  transform: scale(1.08);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.3);
+}
+
+/* Effet de zoom pour les cartes */
+.card:not(.no-zoom) {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.card:not(.no-zoom):hover {
+  transform: scale(1.03);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Effet de zoom pour les éléments avec bordures arrondies interactifs */
+.group:not(.no-zoom),
+[class*="rounded"]:not(.no-zoom) {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.group:not(.no-zoom):hover,
+[class*="rounded"]:not(.no-zoom):hover {
+  transform: scale(1.02);
+}
+
+/* Effet de zoom pour les liens dans le footer et navigation */
+footer a:not(.no-zoom),
+nav a:not(.no-zoom),
+header a:not(.no-zoom) {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+
+footer a:not(.no-zoom):hover,
+nav a:not(.no-zoom):hover,
+header a:not(.no-zoom):hover {
+  transform: scale(1.1);
+}
+
+/* Effet de zoom pour les icônes */
+svg:not(.no-zoom):not(header svg):not(footer svg),
+[class*="icon"]:not(.no-zoom),
+[class*="Icon"]:not(.no-zoom) {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+
+svg:not(.no-zoom):not(header svg):not(footer svg):hover,
+[class*="icon"]:not(.no-zoom):hover,
+[class*="Icon"]:not(.no-zoom):hover {
+  transform: scale(1.15);
+}
+
+/* Désactiver le zoom pour certains éléments */
+.no-zoom,
+.no-zoom:hover {
+  transform: none !important;
 }

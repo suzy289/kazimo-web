@@ -1,17 +1,155 @@
 export default function AProposPage() {
+  const orbitImages = [
+    {
+      src: "/LI_Blog_Four_reasons-202004240933263861987.jpg",
+      radius: "clamp(120px, 15vw, 220px)",
+      duration: "20s",
+      delay: "0s",
+      reverse: false,
+    },
+    {
+      src: "/depositphotos_382815564-stock-photo-forex-chart.jpg",
+      radius: "clamp(150px, 18vw, 280px)",
+      duration: "25s",
+      delay: "-5s",
+      reverse: true,
+    },
+    {
+      src: "/futuric.jpg",
+      radius: "clamp(180px, 21vw, 340px)",
+      duration: "30s",
+      delay: "-10s",
+      reverse: false,
+    },
+    {
+      src: "/forex-gold-trading-background-glowing-260nw-.jpg",
+      radius: "clamp(210px, 25vw, 400px)",
+      duration: "35s",
+      delay: "-15s",
+      reverse: true,
+    },
+    {
+      src: "/pngtree-3d-render-of-crypto-currency-and-nft-composition-image_3828737.jpg",
+      radius: "clamp(240px, 28vw, 460px)",
+      duration: "40s",
+      delay: "-20s",
+      reverse: false,
+    },
+  ];
+
   return (
     <div className="space-y-12 pb-20 pt-10">
-      <section className="section space-y-4">
-        <div className="badge">À propos</div>
-        <h1 className="font-heading text-4xl font-bold text-slate-900 sm:text-5xl">
-          Kazimo, partenaire des EMF/IMF en Afrique
-        </h1>
-        <p className="max-w-4xl text-lg text-slate-700 leading-relaxed">
-          Kazimo est une plateforme de core banking modulaire conçue pour les EMF, IMF,
-          coopératives et banques communautaires en Afrique. Notre mission est de sécuriser et
-          d’accélérer la réussite de la microfinance grâce à une solution évolutive, conforme et
-          tournée vers le mobile et l’intelligence artificielle.
-        </p>
+      {/* Section Hero avec images en rotation */}
+      <section className="section relative overflow-hidden rounded-3xl border border-slate-200/70 bg-gradient-to-br from-[#0a1628] via-[#1a2747] to-[#0f1f3a] p-8 shadow-2xl md:p-12">
+        {/* Effets de fond animés */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-20 top-10 h-72 w-72 rounded-full bg-[#1f5fff]/20 blur-3xl animate-pulse" />
+          <div className="absolute right-0 top-1/3 h-64 w-64 rounded-full bg-[#4da3ff]/15 blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+          <div className="absolute bottom-0 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-gradient-to-tr from-[#1f5fff]/20 via-[#4da3ff]/15 to-transparent blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
+        </div>
+
+        <div className="relative z-10 grid gap-12 lg:grid-cols-2 items-center">
+          {/* Contenu texte */}
+          <div className="space-y-6 text-white">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-[#4da3ff] backdrop-blur-sm border border-white/20">
+              <span className="inline-block h-2 w-2 rounded-full bg-[#4da3ff] animate-pulse" />
+              À propos
+            </div>
+            <h1 className="font-heading text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+              Kazimo,{" "}
+              <span className="bg-gradient-to-r from-[#4da3ff] via-white to-[#4da3ff] bg-clip-text text-transparent">
+                partenaire des EMF/IMF
+              </span>{" "}
+              en Afrique
+            </h1>
+            <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
+              Kazimo est une plateforme de core banking modulaire conçue pour les EMF, IMF,
+              coopératives et banques communautaires en Afrique. Notre mission est de sécuriser et
+              d'accélérer la réussite de la microfinance grâce à une solution évolutive, conforme et
+              tournée vers le mobile et l'intelligence artificielle.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-4">
+              <div className="rounded-lg bg-white/10 px-4 py-2 backdrop-blur-sm border border-white/20">
+                <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Innovation</div>
+                <div className="text-sm font-bold text-white">Technologie de pointe</div>
+              </div>
+              <div className="rounded-lg bg-white/10 px-4 py-2 backdrop-blur-sm border border-white/20">
+                <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Sécurité</div>
+                <div className="text-sm font-bold text-white">Conformité COBAC</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Conteneur d'orbite pour les images */}
+          <div className="orbit-container relative min-h-[500px] lg:min-h-[600px]">
+            {/* Centre avec logo ou icône */}
+            <div className="orbit-center">
+              <div className="text-center z-10 relative">
+                <div className="text-4xl font-bold text-white mb-2 drop-shadow-[0_0_20px_rgba(77,163,255,0.6)]">K</div>
+                <div className="text-xs font-semibold text-[#4da3ff] uppercase tracking-wider">Kazimo</div>
+              </div>
+            </div>
+
+            {/* Images en orbite */}
+            {orbitImages.map((image, index) => (
+              <img
+                key={index}
+                src={image.src}
+                alt={`Orbite ${index + 1}`}
+                className={`orbit-image ${image.reverse ? "reverse" : ""}`}
+                style={{
+                  "--orbit-radius": image.radius,
+                  "--orbit-duration": image.duration,
+                  animationDelay: image.delay,
+                } as React.CSSProperties}
+              />
+            ))}
+
+            {/* Lignes de connexion animées */}
+            <svg className="absolute inset-0 w-full h-full opacity-10" style={{ zIndex: 1, pointerEvents: "none" }}>
+              {orbitImages.map((_, index) => {
+                const angle = (index * 72) * (Math.PI / 180);
+                const radiusStr = orbitImages[index].radius;
+                const matches = radiusStr.match(/([\d.]+)px/g);
+                const radius = matches ? parseFloat(matches[matches.length - 1]) : 220;
+                const centerX = 300; // Centre approximatif
+                const centerY = 300;
+                const x = centerX + Math.cos(angle) * (radius / 2);
+                const y = centerY + Math.sin(angle) * (radius / 2);
+                return (
+                  <line
+                    key={index}
+                    x1={centerX}
+                    y1={centerY}
+                    x2={x}
+                    y2={y}
+                    stroke="rgba(77, 163, 255, 0.2)"
+                    strokeWidth="1"
+                    strokeDasharray="4,4"
+                  />
+                );
+              })}
+            </svg>
+
+            {/* Particules flottantes */}
+            <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2 }}>
+              {[...Array(8)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute rounded-full bg-[#4da3ff]/20 blur-sm"
+                  style={{
+                    width: `${Math.random() * 8 + 4}px`,
+                    height: `${Math.random() * 8 + 4}px`,
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    animation: `float ${Math.random() * 4 + 3}s ease-in-out infinite`,
+                    animationDelay: `${Math.random() * 2}s`,
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="section relative overflow-hidden rounded-2xl border border-slate-200/70 bg-gradient-to-br from-[#e8f1ff] via-white to-[#f3f8ff] p-8 shadow-xl md:p-10">

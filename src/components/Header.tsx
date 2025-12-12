@@ -9,19 +9,33 @@ import { Menu, X } from "lucide-react";
 const navItems = [
   { label: "Pour qui ?", href: "/pour-qui" },
   { label: "À propos", href: "/a-propos" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollDown, setScrollDown] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 10);
+      
+      // Détecter le scroll vers le haut
+      if (currentScrollY < lastScrollY && currentScrollY > 50) {
+        setScrollDown(true);
+        // Réinitialiser après l'animation
+        setTimeout(() => setScrollDown(false), 1200);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+    
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [lastScrollY]);
 
   useEffect(() => {
     setOpen(false);
@@ -31,7 +45,7 @@ export function Header() {
     <header
       className={`header-light fixed top-0 left-0 right-0 z-50 overflow-hidden bg-white/80 backdrop-blur-md transition ${
         scrolled ? "border-b border-slate-200/60" : ""
-      }`}
+      } ${scrollDown ? "header-slide-down-animate" : ""}`}
     >
       <div className="section flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
@@ -62,7 +76,7 @@ export function Header() {
           })}
           <Link
             href="/contact"
-            className="ml-5 rounded-lg border border-slate-300 px-5 py-2.5 text-base font-semibold text-slate-900 transition hover:bg-[#1f5fff] hover:text-white hover:border-[#1f5fff]"
+            className="ml-5 rounded-lg border border-slate-300 bg-black px-5 py-2.5 text-base font-semibold text-white transition hover:bg-[#1f5fff] hover:text-white hover:border-[#1f5fff]"
           >
             Demander une démo
           </Link>
@@ -78,22 +92,24 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-slate-200 bg-black lg:hidden">
+        <div className="border-t border-slate-200 bg-white lg:hidden">
           <div className="section flex flex-col gap-3 py-5 text-lg font-semibold text-slate-800">
-            {navItems.map((item) => (
+            {navItems
+              .filter((item) => item.href !== "/contact")
+              .map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`nav-link-shape py-2 hover:text-[#1f5fff] ${
+                className={`nav-link-shape bg-white py-2 hover:text-[#1f5fff] hover:bg-white focus-visible:bg-white active:bg-white ${
                   pathname === item.href ? "text-[#1f5fff]" : ""
                 }`}
               >
                 {item.label}
               </Link>
-            ))}
+              ))}
             <Link
               href="/contact"
-              className="mt-3 rounded-lg border border-slate-300 px-5 py-2.5 text-center text-slate-900 transition hover:bg-[#1f5fff] hover:text-white hover:border-[#1f5fff]"
+              className="mt-3 rounded-lg border border-slate-300 bg-black px-5 py-2.5 text-center text-white transition hover:bg-[#1f5fff] hover:text-white hover:border-[#1f5fff]"
             >
               Demander une démo
             </Link>
